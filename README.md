@@ -59,9 +59,9 @@ $ docker run -it --rm -v */path/to/graphandoutput/folder*:/data kemele/semep-nod
 ```
 `nodes` and `similarity-matrix` files sould be attached as a volume to the container. 
 
-## 3. Running BOUNCER
+## 3. Running MULDER
 
-## 4. Running MULDER
+## 4. Running BOUNCER
 
 ## 5. Running Ontario
 
