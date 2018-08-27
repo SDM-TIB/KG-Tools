@@ -13,7 +13,7 @@
 # Running KG-Tools on Docker 
 
 
-## Running RDFizer
+## 1. Running RDFizer
 ```bash
 $ docker run -d --name myrdfizer -p 4000:80 kemele/rdfizer:1.0
 ```
@@ -51,3 +51,21 @@ Then execute the following to start the transformation of raw data:
 $ curl -X POST localhost:4000/graph_creation/data/config/config_file.ini 
 ```
 The output of the RDFization process will be written to a folder specified in the `output_folder` (in this case, it is in `/data/output`) as `N-Triple` file.
+
+## 2. Running SemEP
+
+```bash
+$ docker run -it --rm -v */path/to/graphandoutput/folder*:/data kemele/semep-node:20-04-18 semEP-node <nodes> <similarity matrix> <threshold>
+```
+`nodes` and `similarity-matrix` files sould be attached as a volume to the container. 
+
+## 3. Running BOUNCER
+
+## 4. Running MULDER
+
+## 5. Running Ontario
+
+# KG Creation and Management Pipeline
+
+This pipeline created by combining the tools described above with other storage and communications. One example of such Pipeline is created for [IASIS-KG](https://github.com/SDM-TIB/IASIS-KG), which uses the RDFizer, MULDER, and SemEP, in addition, OpenLink Virtuoso triple store is used to store the transformed data to make querying via SPARQL possible. RabbitMQ is used for communication between components.  
+
